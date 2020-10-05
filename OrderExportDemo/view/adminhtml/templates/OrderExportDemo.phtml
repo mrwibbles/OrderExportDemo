@@ -1,0 +1,21 @@
+<form action="<?php echo $block->getExportUrl(); ?>" method="post">
+    <input type="hidden" name="export_todays_orders" value="1">
+    <input name="form_key" type="hidden" value="<?php echo $block->getFormKey() ?>" />
+    <div class="page-main-actions">
+        <div class="page-actions-placeholder"></div>
+        <div class="page-actions" data-ui-id="page-actions-toolbar-content-header">
+            <div class="page-actions-inner" data-title="Orders">
+                <div class="page-actions-buttons">
+                    <button
+                        id="add"
+                        title="Create New Order"
+                        type="submit"
+                        class="action- scalable primary"
+                        data-ui-id="export-button">
+                        <span>Export Today's Orders</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

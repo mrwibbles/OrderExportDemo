@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="AlexGlover_OrderExportDemo::order_export_demo_heading" title="Order Export Demo" translate="Order Export Demo" module="AlexGlover_OrderExportDemo" parent="Magento_Sales::sales" sortOrder="50" dependsOnModule="AlexGlover_OrderExportDemo" resource="Magento_Sales::sales"/>
+        <add id="AlexGlover_OrderExportDemo::order_export_demo" title="Exporter" translate="Exporter" module="AlexGlover_OrderExportDemo" parent="AlexGlover_OrderExportDemo::order_export_demo_heading" sortOrder="10" dependsOnModule="AlexGlover_OrderExportDemo" action="demoorderexport/OrderExportDemo" resource="AlexGlover_OrderExportDemo::order_export_demo_heading"/>
+    </menu>
+</config>
