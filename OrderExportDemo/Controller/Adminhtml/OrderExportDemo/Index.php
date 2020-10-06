@@ -19,8 +19,6 @@ class Index extends Action implements HttpGetActionInterface
      */
     protected $resultPageFactory;
 
-    public $export_url = 'test';
-
     /**
      * Index constructor.
      *
@@ -46,21 +44,6 @@ class Index extends Action implements HttpGetActionInterface
         $resultPage = $this->resultPageFactory->create();
         $resultPage->setActiveMenu(static::MENU_ID);
         $resultPage->getConfig()->getTitle()->prepend(__('Order Export Demo Showcase'));
-
-        $url = $this->_url->getUrl('demoorderexport/OrderExportDemo/export');
-//        var_dump($this->_url->getCurrentUrl());
-
-
-        if (isset($_POST['export_todays_orders'])) {
-            $this->generateOrderExportCsv();
-        }
-
         return $resultPage;
-    }
-
-    private function generateOrderExportCsv()
-    {
-        var_dump('why hello there');
-        die();
     }
 }

@@ -25,13 +25,6 @@ class Export extends Template
         return $this->_url->getUrl('demoorderexport/OrderExportDemo/export');
     }
 
-    public function generateCsv()
-    {
-        if (!empty($_POST)) {
-            var_dump('worky');
-        }
-    }
-
     public function getFormKey()
     {
         return $this->formKey->getFormKey();
