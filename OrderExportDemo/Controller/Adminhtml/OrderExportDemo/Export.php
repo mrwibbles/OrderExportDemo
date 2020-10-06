@@ -30,10 +30,9 @@ class Export extends Action implements HttpPostActionInterface
 
     public function execute()
     {
-        $to = date("Y-m-d h:i:s");
-        $from = strtotime('-1 day', strtotime($to));
+        $to = date("Y-m-d h:i:s", strtotime('tomorrow'));
+        $from = date("Y-m-d h:i:s", strtotime('-1 day'));
         $collection = $this->getOrderCollectionByDate($to, $from);
-
         $data = [];
 
         foreach ($collection as $order) {
@@ -50,7 +49,8 @@ class Export extends Action implements HttpPostActionInterface
                 'shipping_country' => $order->getShippingAddress()->getCountryId(),
                 'grand_total' => $order->getGrandTotal(),
                 'tax' => $order->getTaxAmount(),
-                'shipping_total' => $order->getShippingInclTax()
+                'shipping_total' => $order->getShippingInclTax(),
+                'created_at' => $order->getCreatedAt()
             ];
         }
 
@@ -104,7 +104,8 @@ class Export extends Action implements HttpPostActionInterface
         return ob_get_clean();
     }
 
-    private function download_send_headers($filename) {
+    private function download_send_headers($filename)
+    {
         // disable caching
         $now = gmdate("D, d M Y H:i:s");
         header("Cache-Control: max-age=0, no-cache, must-revalidate, proxy-revalidate");
